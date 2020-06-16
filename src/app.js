@@ -40,9 +40,9 @@ app.put("/repositories/:id", (req, res) => {
   return res.json(repositories[repoIndex])
 });
 
+
 app.delete("/repositories/:id", (req, res) => {
   const id = req.params.id
-
   const repoIndex = repositories.findIndex(e => e.id == id)
 
   if(repoIndex < 0) {
@@ -53,9 +53,9 @@ app.delete("/repositories/:id", (req, res) => {
   res.status(204).send()
 });
 
+
 app.post("/repositories/:id/like", (req, res) => {
   const id = req.params.id
-
   const repoIndex = repositories.findIndex(e => e.id == id)
   
   if(repoIndex < 0){
@@ -63,10 +63,10 @@ app.post("/repositories/:id/like", (req, res) => {
   }
 
   const { likes } = repositories[repoIndex]
- 
   repositories[repoIndex].likes = likes+1
 
   return res.json(repositories[repoIndex])
 });
+
 
 module.exports = app;
