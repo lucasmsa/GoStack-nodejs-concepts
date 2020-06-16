@@ -13,6 +13,7 @@ app.get("/repositories", (req, res) => {
   res.json(repositories)
 });
 
+
 app.post("/repositories", (req, res) => {
   const { title, url, techs } = req.body
   const repository = { id: uuid(), title, url, techs, likes: 0}
@@ -20,6 +21,7 @@ app.post("/repositories", (req, res) => {
 
   return res.json(repository)
 });
+
 
 app.put("/repositories/:id", (req, res) => {
   const { title, url, techs } = req.body
